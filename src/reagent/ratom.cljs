@@ -210,6 +210,8 @@
                nil watches))
 
   (-add-watch [this k wf]
+    (when-not active?
+      (run this))
     (set! watches (assoc watches k wf)))
 
   (-remove-watch [this k]
